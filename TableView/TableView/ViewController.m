@@ -1,9 +1,9 @@
 //
 //  ViewController.m
-//  ShowViewCountry
+//  TableView
 //
-//  Created by apple on 16/4/13.
-//  Copyright © 2016年 apple. All rights reserved.
+//  Created by ybb on 2017/1/6.
+//  Copyright © 2017年 ybb. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -24,14 +24,14 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.view.backgroundColor = [UIColor yellowColor];
- self.showTabelView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
+    self.showTabelView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
     // 要先创建tableview在执行代理
     self.showTabelView.delegate = self;
     self.showTabelView.dataSource = self;
     
-   
+    
     [self.showTabelView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
-
+    
     NSArray *array1 = [NSArray arrayWithObjects:@"中国", @"日本", @"朝鲜", nil];
     NSArray *array2 = [NSArray arrayWithObjects:@"德国", @"英国", @"瑞士", nil];
     NSArray *array3 = [NSArray arrayWithObjects:@"美国", @"加拿大", @"墨西哥", nil];
@@ -39,7 +39,7 @@
     
     [self.view addSubview:_showTabelView];
     
-//    UIBarButtonItem *edit = [UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector()];
+    //    UIBarButtonItem *edit = [UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector()];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
@@ -106,19 +106,19 @@
     NSMutableArray *array = [NSMutableArray arrayWithArray:[_dataArray objectAtIndex:indexPath.section]];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         if ([array count] > 1) {
-
-        //删除制定行数据
-        [array removeObjectAtIndex:indexPath.row];
-        //将当前数据替换
-        [_dataArray replaceObjectAtIndex:indexPath.section withObject:array];
-        
-        //删除某一行
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:(UITableViewRowAnimationLeft)];
+            
+            //删除制定行数据
+            [array removeObjectAtIndex:indexPath.row];
+            //将当前数据替换
+            [_dataArray replaceObjectAtIndex:indexPath.section withObject:array];
+            
+            //删除某一行
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:(UITableViewRowAnimationLeft)];
         }else {
             [_dataArray removeObjectAtIndex:indexPath.section];
             [tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation: UITableViewRowAnimationRight];
         }
-     
+        
         
     }
     if (editingStyle == UITableViewCellEditingStyleInsert) {
@@ -149,10 +149,10 @@
     return sourceIndexPath;
     
     //允许移动
-//    return proposedDestinationIndexPath;
+    //    return proposedDestinationIndexPath;
     
     //不允许移动
-//    return sourceIndexPath;
+    //    return sourceIndexPath;
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {

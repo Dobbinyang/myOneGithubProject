@@ -1,18 +1,18 @@
 //
-//  ShowViewCountryTests.m
-//  ShowViewCountryTests
+//  TableViewTests.m
+//  TableViewTests
 //
-//  Created by apple on 16/4/13.
-//  Copyright © 2016年 apple. All rights reserved.
+//  Created by ybb on 2017/1/6.
+//  Copyright © 2017年 ybb. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface ShowViewCountryTests : XCTestCase
+@interface TableViewTests : XCTestCase
 
 @end
 
-@implementation ShowViewCountryTests
+@implementation TableViewTests
 
 - (void)setUp {
     [super setUp];
